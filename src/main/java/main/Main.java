@@ -49,7 +49,7 @@ public class Main {
 
                     opcao = sc.nextInt();
                     if (opcao == 0) {
-                        System.out.println("OBRIGADO POR USAR NOSSO SISTEMA!");
+                        System.out.println("FECHANDO SESSÃO...\n");
                         break;
                     }
                     switch (opcao) {
@@ -67,6 +67,7 @@ public class Main {
 
                             System.out.println("INSIRA VALOR PARA SAQUE: ");
                             double valorSaque = sc.nextDouble();
+                            sc.nextLine();
                             conta.sacar(valorSaque);
                             break;
 
@@ -74,6 +75,7 @@ public class Main {
                         case 3:
                             System.out.println("INSIRA VALOR PARA DEPOSITO: ");
                             double valorDeposito = sc.nextDouble();
+                            sc.nextLine();
                             conta.depositar(valorDeposito);
                             break;
 
@@ -239,7 +241,7 @@ public class Main {
         while(true) {
 
             System.out.println("\nINSIRA O NOME DO TITULAR DA CONTA");
-            String nome = sc.nextLine().trim();
+            String nome = sc.nextLine().trim().toUpperCase();
 
             if (nome.isEmpty() || nome.length() < 3 || !nome.matches("[a-zA-ZÀ-ÿ\\s]+")) {
                 System.out.println("INSIRA UM NOME VÁLIDO PARA CONFIRMAÇÃO...\n");
